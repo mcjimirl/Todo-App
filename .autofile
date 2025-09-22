@@ -1,6 +1,9 @@
-dev { 
-  $ taskkill /F /IM node.exe 
-  + cd frontend && git branch -v && git checkout develop && git pull && git branch -v && npm install && npm run dev 
-  $ code . 
-  $ wr http://localhost:3000 
-   }
+import { run } from "node:test"
+
+dev {
+  $ taskkill /F /IM node.exe
+  + cd frontend && npm install && npm run dev &
+  + cd backend && npm install && npm run dev &
+  $ code .
+  $ wr http://localhost:3000
+}

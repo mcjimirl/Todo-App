@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Todo } from '../types/Todo';
+import { useEffect, useState } from "react";
+import { Todo } from "../types/Todo";
 
-const STORAGE_KEY = 'todos';
+const STORAGE_KEY = "todos";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -11,13 +11,13 @@ export const useTodos = () => {
     const storedTodos = localStorage.getItem(STORAGE_KEY);
     if (storedTodos) {
       try {
-        const parsedTodos = JSON.parse(storedTodos).map((todo: any) => ({
+        const parsedTodos = JSON.parse(storedTodos).map((todo: Todo) => ({
           ...todo,
           createdAt: new Date(todo.createdAt),
         }));
         setTodos(parsedTodos);
       } catch (error) {
-        console.error('Error loading todos from localStorage:', error);
+        console.error("Error loading todos from localStorage:", error);
       }
     }
   }, []);
@@ -27,30 +27,32 @@ export const useTodos = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (text: string) => {
+  const addTodo = (task: string, startDate: string, dueDate: string) => {
     const newTodo: Todo = {
       id: crypto.randomUUID(),
-      text: text.trim(),
+      task: task.trim(),
+      startDate,
+      dueDate,
       completed: false,
       createdAt: new Date(),
     };
-    setTodos(prev => [...prev, newTodo]);
+    setTodos((prev) => [...prev, newTodo]);
   };
 
   const toggleTodo = (id: string) => {
-    setTodos(prev =>
-      prev.map(todo =>
+    setTodos((prev) =>
+      prev.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(prev => prev.filter(todo => todo.id !== id));
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
   const clearCompleted = () => {
-    setTodos(prev => prev.filter(todo => !todo.completed));
+    setTodos((prev) => prev.filter((todo) => !todo.completed));
   };
 
   return {

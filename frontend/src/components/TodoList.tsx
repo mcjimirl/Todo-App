@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { TodoItem } from './TodoItem';
-import { Todo } from '../types/Todo';
+import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+import { Todo } from "../types/Todo";
+import { TodoItem } from "./TodoItem";
 
 interface TodoListProps {
   todos: Todo[];
@@ -9,7 +9,11 @@ interface TodoListProps {
   onDeleteTodo: (id: string) => void;
 }
 
-export const TodoList: React.FC<TodoListProps> = ({ todos, onToggleTodo, onDeleteTodo }) => {
+export const TodoList: React.FC<TodoListProps> = ({
+  todos,
+  onToggleTodo,
+  onDeleteTodo,
+}) => {
   if (todos.length === 0) {
     return (
       <motion.div
