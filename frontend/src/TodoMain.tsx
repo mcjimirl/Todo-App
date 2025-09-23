@@ -14,10 +14,10 @@ function TodoMain() {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 
+      className="min-h-screen min-w-screen bg-gradient-to-br from-gray-50 to-gray-100 
                   dark:from-gray-900 dark:to-gray-800 transition-all duration-300"
     >
-      <div className="container mx-auto px-4 py-8 max-w-2xl">
+      <div className="container px-4 p-8 max-w-screen">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -32,7 +32,7 @@ function TodoMain() {
           />
           <div
             className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl
-               border border-gray-200 dark:border-gray-700 p-6 sm:p-8"
+               border border-gray-200 dark:border-gray-700 p-6 sm:p-8 mx-56"
           >
             <TodoForm onAddTodo={addTodo} />
 
