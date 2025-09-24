@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import checklist from "../assets/imgs/checklist.png";
 import { Todo } from "../types/Todo";
 import { TodoItem } from "./TodoItem";
 
@@ -19,10 +20,12 @@ export const TodoList: React.FC<TodoListProps> = ({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center py-12"
+        className=" py-12"
       >
-        <div className="text-6xl mb-4">📝</div>
-        <p className="text-gray-500 dark:text-gray-400 text-lg">
+        <div className="flex justify-center text-6xl mb-4">
+          <img src={checklist} alt="" />
+        </div>
+        <p className="text-gray-500 dark:text-gray-400 text-lg text-center">
           No tasks yet. Add one above to get started!
         </p>
       </motion.div>

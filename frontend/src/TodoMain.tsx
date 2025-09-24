@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
 import { Header } from "./components/Header";
+// import { TodoForm } from "./components/TodoForm";
+import { ListPlus } from "lucide-react";
+import { useState } from "react";
 import { TodoForm } from "./components/TodoForm";
 import { TodoList } from "./components/TodoList";
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useTodos } from "./hooks/useTodos";
 
 function TodoMain() {
-  const { todos, addTodo, toggleTodo, deleteTodo, clearCompleted } = useTodos();
+  const { todos, toggleTodo, deleteTodo, clearCompleted, addTodo } = useTodos();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
@@ -34,7 +38,14 @@ function TodoMain() {
             className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl
                border border-gray-200 dark:border-gray-700 p-6 sm:p-8 mx-56"
           >
-            <TodoForm onAddTodo={addTodo} />
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex flex-row w-fit items-center gap-2 rounded-2xl bg-blue-700 text-white p-4 hover:bg-blue-800 transition"
+            >
+              <ListPlus size={32} />
+              <h3>Add a New Task</h3>
+            </button>
+            {/* <TodoForm onAddTodo={addTodo} /> */}
 
             <TodoList
               todos={todos}
@@ -44,6 +55,12 @@ function TodoMain() {
           </div>
         </motion.div>
       </div>
+      {/* Modal TodoForm */}
+      <TodoForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAddTodo={addTodo}
+      />
     </div>
   );
 }

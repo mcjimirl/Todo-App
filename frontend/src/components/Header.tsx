@@ -41,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div>
           <img src={logo} className="h-14 w-24 mr-2" />
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-1">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-1 uppercase">
           To-Do App
         </h1>
       </div>

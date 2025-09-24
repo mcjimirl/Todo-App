@@ -48,15 +48,20 @@ export const TodoItem: React.FC<TodoItemProps> = ({
         </motion.button>
 
         <span
-          className={`flex-1 transition-all duration-300 ${
+          className={`flex-1 transition-all duration-300 items ${
             todo.completed
               ? "text-gray-500 dark:text-gray-400 line-through"
               : "text-gray-900 dark:text-gray-100"
           }`}
         >
-          {todo.task}
-          {todo.startDate}
-          {todo.dueDate}
+          <div className="flex justify-between">
+            <span className="uppercase font-semibold">{todo.task}</span>
+            {/* {todo.startDate} */}
+            <div className="">
+              Due Date:{" "}
+              <span className="text-red-600 italic">{todo.dueDate}</span>
+            </div>
+          </div>
         </span>
 
         <motion.button
