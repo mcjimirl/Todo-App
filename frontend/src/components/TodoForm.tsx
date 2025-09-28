@@ -7,7 +7,12 @@ import { InputField } from "./InputField";
 interface TodoFormProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddTodo: (task: string, startDate: string, dueDate: string) => void;
+  onAddTodo: (
+    task: string,
+    description: string,
+    startDate: string,
+    dueDate: string
+  ) => void;
 }
 
 export const TodoForm: React.FC<TodoFormProps> = ({
@@ -23,12 +28,12 @@ export const TodoForm: React.FC<TodoFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (task.trim()) {
-      onAddTodo(task, startDate, dueDate);
+      onAddTodo(task, description, startDate, dueDate);
       setTask("");
       setDescription("");
       setStartDate("");
       setDueDate("");
-      onClose(); // Close modal after adding
+      onClose();
     }
   };
 

@@ -2,7 +2,7 @@ import Avatar from "avatox";
 import { motion } from "framer-motion";
 import { CheckCircle, Moon, Sun } from "lucide-react";
 import React from "react";
-import logo from "../assets/imgs/TD.png";
+// import logo from "../assets/imgs/TD.png";
 
 interface Lead {
   id: string;
@@ -38,9 +38,6 @@ export const Header: React.FC<HeaderProps> = ({
     >
       {/* Left section */}
       <div className="flex flex-col sm:flex-row sm:items-center">
-        <div>
-          <img src={logo} className="h-14 w-24 mr-2" />
-        </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-1 uppercase">
           To-Do App
         </h1>

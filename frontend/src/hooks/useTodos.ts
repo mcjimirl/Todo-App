@@ -27,10 +27,16 @@ export const useTodos = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (task: string, startDate: string, dueDate: string) => {
+  const addTodo = (
+    task: string,
+    description: string,
+    startDate: string,
+    dueDate: string
+  ) => {
     const newTodo: Todo = {
       id: crypto.randomUUID(),
       task: task.trim(),
+      description: description.trim(),
       startDate,
       dueDate,
       completed: false,
