@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { Todo } from "../../types/todoTypes";
 import checklist from "../assets/imgs/checklist.png";
-import { Todo } from "../types/Todo";
 import { TodoItem } from "./TodoItem";
 
 interface TodoListProps {

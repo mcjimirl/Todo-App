@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Trash2, X } from "lucide-react";
 import React, { useState } from "react";
-import { Todo } from "../types/Todo";
+import { Todo } from "../../types/todoTypes";
 
 interface TodoItemProps {
   todo: Todo;
@@ -97,7 +97,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-lg max-w-lg w-full p-6 relative"
+            className="bg-white rounded-xl shadow-lg max-w-lg w-full p-6 relative"
           >
             {/* Close button */}
             <button
@@ -107,11 +107,17 @@ export const TodoItem: React.FC<TodoItemProps> = ({
               <X size={20} />
             </button>
 
-            <h2 className="text-xl font-bold mb-4">{todo.task}</h2>
-            <div className="space-y-2 text-gray-700 dark:text-gray-300">
+            <h2 className="text-xl font-bold mb-4 uppercase">
+              task: {todo.task}
+            </h2>
+            <div className="space-y-2 text-gray-700 ">
               <p>
                 <span className="font-semibold">Status:</span>{" "}
                 {todo.completed ? "✅ Completed" : "⌛ Pending"}
+              </p>
+              <p>
+                <span className="font-semibold">Description:</span>{" "}
+                {todo.description || "No description provided"}
               </p>
               <p>
                 <span className="font-semibold">Started Date:</span>{" "}
@@ -120,10 +126,6 @@ export const TodoItem: React.FC<TodoItemProps> = ({
               <p>
                 <span className="font-semibold">Due Date:</span>{" "}
                 <span className="text-red-600">{todo.dueDate}</span>
-              </p>
-              <p>
-                <span className="font-semibold">Description:</span>{" "}
-                {todo.description || "No description provided"}
               </p>
             </div>
           </motion.div>

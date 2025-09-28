@@ -1,6 +1,6 @@
 import Avatar from "avatox";
 import { motion } from "framer-motion";
-import { CheckCircle, Moon, Sun } from "lucide-react";
+import { CheckCircle, Moon, ScrollText, Sun } from "lucide-react";
 import React from "react";
 // import logo from "../assets/imgs/TD.png";
 
@@ -37,9 +37,10 @@ export const Header: React.FC<HeaderProps> = ({
       className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 px-2"
     >
       {/* Left section */}
-      <div className="flex flex-col sm:flex-row sm:items-center">
+      <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+        <ScrollText className="h-14 w-14 text-gray-900 dark:text-white" />
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-1 uppercase">
-          To-Do App
+          Task-Tracker
         </h1>
       </div>
 

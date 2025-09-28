@@ -63,7 +63,9 @@ export const TodoForm: React.FC<TodoFormProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-semibold mb-4">Add a New Task</h2>
+          <h2 className="text-xl font-semibold dark:text-white mb-4">
+            Add a New Task
+          </h2>
 
           {/* Task Input */}
           <InputField
@@ -130,7 +132,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({
             disabled={!task.trim()}
           >
             <Plus size={20} />
-            <span className="hidden sm:inline">Add Task</span>
+            <span className="hidden sm:inline ml-2">Add Task</span>
           </motion.button>
         </motion.form>
       </motion.div>
